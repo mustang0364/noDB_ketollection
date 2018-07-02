@@ -4,7 +4,8 @@ import './App.css';
 import Delete from './Components/Delete';
 import Header from './Components/Header';
 import logo from './ketoLogo.png';
-// import MealPlan from './Components/MealPlan';
+// import Search from './Components/Search'
+
 
 
 const baseUrl = '/api/recipes';
@@ -64,23 +65,29 @@ class App extends Component {
                   <div id="name">{r.name}</div>
                       
 
-                      <Delete className="icon" id={r.id}
+                      <Delete id="deleter" id={r.id}
                         action={() => this.deleteRecipe(r.id)}
                       />
               </div>
             </div>
     })
     return (
-        <div>
+      <div className="App">
          <div className="header">
             <Header/>
+            HEADER
          </div>
           
-        <div className="body-container">
-           <div className="body-flex">
-                <div className="side-panel">SIDE
-                    <div id="top">ADD-RECIPE
-                      <div className="form-wrap">
+       <div className="body-container">
+           <div className="body">
+           <div className ="grid-container">
+                        {recipes}
+               </div>
+                <div className="side">
+                     <br/>
+                      <p>Add Recipe</p>
+                   <div className ="forms">
+                      
                                 <input
                                   className="input"
                                   placeholder="name"
@@ -88,6 +95,8 @@ class App extends Component {
                                     this.name = name;
                                   }}
                                 />
+
+                                <br/>
                                 <input
                                   className="input"
                                   placeholder="url"
@@ -95,6 +104,8 @@ class App extends Component {
                                     this.url = url;
                                   }}
                                 />
+                                <br/>
+                            
                                 <input
                                   className="input"
                                   placeholder="image"
@@ -102,20 +113,17 @@ class App extends Component {
                                     this.image = image;
                                   }}
                                 />
+                                <br/>
                                 <button className="button" onClick={this.addRecipe}>
-                                    Add Recipe
+                                    Add 
                                   </button>
-                                
-                              </div>
-                    </div>
-                <div className="gallery-panel">
-                <div className ="grid-container">
-                  {recipes}
+
+                                  {/* <Search/> */}
+                               </div>
+                    
+                  </div>
                 </div>
-                </div>
-           </div>
           </div> 
-        </div>
       </div>
       )
 
