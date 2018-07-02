@@ -36,19 +36,19 @@ module.exports = {
         response.status(200).send(recipes);
     },
     update: (request,response)=>{
-        const {name} = request.body;
-        const updateID =request.params.id;
+        console.log(request.body, request.query);
+        const {name, url, image} = request.body;
+        const {id} = request.query;
+        console.log(id)
 
-        const recipesIndex = recipes.findIndex(recipes=> recipes.id == updateID);
-        let recipes = recipes[recipesIndex];
-
-        recipes[recipesIndex] = {
-            id: recipes.id,
-            name: name || recipes.name,
-            url: url || recipes.url,
-            image: image || recipes.image
-        };
-        response.status(200).send(recipes);
+        const recipesIndex = recipes.findIndex(recipe=> recipe.id == id);
+        
+                recipes[recipesIndex].id = id
+                recipes[recipesIndex].name = name
+                recipes[recipesIndex].url = url
+                recipes[recipesIndex].image = image 
+       
+        response.status(200).json(recipes);
     },
     delete: (request,response)=>{
         const deleteId = request.params.id;

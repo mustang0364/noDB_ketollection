@@ -55,6 +55,7 @@ export default class Search extends Component {
                    <div className="wrap-flex">
                     <div className="label-found">
                     {r.recipe.label}   
+                    
                     </div>
                     <button onClick={()=>this.myAddRecipe(r.recipe.label, r.recipe.url, r.recipe.image)} id="plus">+</button>
                    </div>
@@ -65,7 +66,7 @@ export default class Search extends Component {
 
         <div className="Search__content">
           <input placeholder="Search" onChange={(e)=> this.handleChange(e.target.value)}/>
-          <button  onClick={this.findRecipes}>Search</button>
+          <button  onClick={this.findRecipes}>search</button>
           <div>{recipesFound}</div>
         </div>
         

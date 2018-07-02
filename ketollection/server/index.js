@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 /* CRUD for Collection */
 app.get('/api/recipes', con.read);
 app.post('/api/recipes', con.create);
-app.put('/api/recipes/:id', con.update);
+app.put('/api/recipes', con.update);
 app.delete('/api/recipes/:id', con.delete);
 
 

@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
 	list-style: none;
@@ -48,29 +48,36 @@ table {
 	border-spacing: 0;
 }
 
+
 .App {
   text-align: center;
 }
 
 .wrap{
-  background: orange;
-  width:300px;
-  height: 350px;
+
+  background: white;
+  opacity: 0.8;
+  width:253px;
+  height: 300px;
+  border: 1px solid rgb(226, 226, 226);
+
 
 }
 
 .grid-container {
   display: grid;
   height: 300px;
+  margin-left: 5px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  width:800px;
+  width:700px;
 }
 
 .pics{
-  height: 250px;
-  width:250px;
+  height: 200px;
+  width:200px;
   margin: 15px 25px;
+  opacity: 1;
 }
 
 .icon{
@@ -92,43 +99,45 @@ table {
 }
 
 .body-container{
-  background: red;
+  background: white;
   width:100%;
+  background-image: url("https://c.wallhere.com/photos/a0/41/4027x3000_px_Asian_breakfast_cat_Chilli_Peppers_Cook_Cooking_dog-526650.jpg!d");
+  background-size: cover;
+  background-repeat: no-repeat; 
 }
 
-.header{
-  background: yellow;
+.header-flex{
+  background: white;
   min-height: 100px;
   width: 100%;
 }
 .panel{
-  background: purple;
   margin: 0 auto;
   width: 1200px;
   min-height: 100px;
-  
 }
 
 .body{
-  background: pink;
   margin:0 auto;
   width: 1200px;
-  min-height: 1500px;
+  min-height: 1400px;
   display: flex;
 }
 
 .side{
-  background:green;
-  min-height: 1000px;
+  border: 2px solid gray;
+  background: white;
+  opacity: 0.8;
+  height: 100%;
   flex:1;
+  width: 400px;
 }
 .grid-container{
   flex:5;
   margin: 0 auto;
 }
 .gallery{
-  width:250px;
-  
+  width:200px;
 }
 
 
@@ -148,7 +157,12 @@ p{
 
 button{
   font-size: 16px;
-  
+  border: 1px rgb(203, 232, 202) outset;
+}
+
+.imageDelete{
+  height: 2em;
+  width:2em;
 }
 
 #deleter{
@@ -163,23 +177,17 @@ button{
   
 }
 
-.wrap-found{
-  background: teal;
-  
-}
-
 .gallery-found{
-  width: 216px;
+  width: 200px;
+  margin-top:5px;
 }
 
 .wrap-flex{
-  background: gray;
   display: inline;
   width: 200px;
 }
 
 .label-found{
-  background: lightgreen;
   font-size: 10px;
   margin: 0 auto;
   display:inline;
@@ -189,3 +197,17 @@ button{
 #plus{
   display:inline;
 }
+
+.Header__parent{
+  background-image:url("http://theartofcheese.com/wp-content/uploads/2014/09/aochead6.jpg?ef16b5");
+  background-size: 2000px 300px, cover;
+  background-repeat: no-repeat; 
+}
+
+.addLogo{
+  height: 70px;
+}
+
+.imageHolder{
+  border: 0px;
+} 

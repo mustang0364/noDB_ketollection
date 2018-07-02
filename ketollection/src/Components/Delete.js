@@ -6,7 +6,9 @@ export default function Delete(props){
     let type = props.type;
     return(
         <div>
-        <button onClick={props.action}> X </button>
+        <button className="imageHolder"
+        onClick={props.action}> 
+        <img className="imageDelete" src="https://cdn0.iconfinder.com/data/icons/round-ui-icons/512/close_red.png"/> </button>
         </div>)
 
 }
