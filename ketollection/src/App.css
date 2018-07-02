@@ -164,29 +164,28 @@ button{
 }
 
 .wrap-found{
-  height: 150px;
-  width: 150px;
+  background: teal;
   
 }
-
-
-
 
 .gallery-found{
   width: 216px;
 }
 
 .wrap-flex{
-  display: flex;
+  background: gray;
+  display: inline;
+  width: 200px;
 }
 
 .label-found{
-  width:100px;
+  background: lightgreen;
   font-size: 10px;
-  margin: 0 58px;
-  flex: 1;
+  margin: 0 auto;
+  display:inline;
+
 }
 
 #plus{
-  flex:1;
+  display:inline;
 }
