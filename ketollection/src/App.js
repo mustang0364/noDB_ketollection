@@ -4,7 +4,8 @@ import './App.css';
 import Delete from './Components/Delete';
 import Header from './Components/Header';
 import logo from './ketoLogo.png';
-// import Search from './Components/Search'
+import Search from './Components/Search'
+import Edit from './Components/Edit';
 
 
 
@@ -52,6 +53,12 @@ class App extends Component {
   })
   }
 
+  getUpdatedRecipes = (updated) => {
+    this.setState({
+      recipes: updated
+    })
+
+  }
    
 
   render() {
@@ -75,7 +82,6 @@ class App extends Component {
       <div className="App">
          <div className="header">
             <Header/>
-            HEADER
          </div>
           
        <div className="body-container">
@@ -85,7 +91,7 @@ class App extends Component {
                </div>
                 <div className="side">
                      <br/>
-                      <p>Add Recipe</p>
+                      <p>add recipe</p>
                    <div className ="forms">
                       
                                 <input
@@ -96,7 +102,7 @@ class App extends Component {
                                   }}
                                 />
 
-                                <br/>
+                               
                                 <input
                                   className="input"
                                   placeholder="url"
@@ -104,7 +110,7 @@ class App extends Component {
                                     this.url = url;
                                   }}
                                 />
-                                <br/>
+                            
                             
                                 <input
                                   className="input"
@@ -113,12 +119,12 @@ class App extends Component {
                                     this.image = image;
                                   }}
                                 />
-                                <br/>
+                                
                                 <button className="button" onClick={this.addRecipe}>
                                     Add 
                                   </button>
 
-                                  {/* <Search/> */}
+                                  <Search getUpdatedRecipes={this.getUpdatedRecipes} addRecipeFn={this.addRecipe}/>
                                </div>
                     
                   </div>

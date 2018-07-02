@@ -1,62 +1,75 @@
-// import React, { Component } from 'react';
-// import axios from 'axios';
+import React, { Component } from 'react';
+import axios from 'axios';
+const baseUrl = '/api/recipes';
 
 
-// import SearchIcon from 'react-icons/lib/md/search';
+export default class Search extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            recipesFound:[],
+            label: '',
+            url: '',
+            image: '',
+            search:'',
+        }
+    }
+   findRecipes=()=>{
+       console.log(`http://api.edamam.com/search?q=${this.state.search}&app_id=56d22535&app_key=01d375bd14696b90f242ba5c68d7dfeb&from=0&to=5&diet=low-carb`)
+       axios.get(`http://api.edamam.com/search?q=${this.state.search}&app_id=56d22535&app_key=01d375bd14696b90f242ba5c68d7dfeb&from=0&to=5&diet=low-carb`).then(response=>{
+           console.log(response.data)
+       this.setState({
+               recipesFound: response.data.hits,
+           })
+       })
+   }
+
+   myAddRecipe = (name, url, image) => {
+    let newRecipe = {
+      name: name,
+      url: url,
+      image: image
+    };
+    axios.post(`${baseUrl}`, newRecipe).then(response =>{
+    this.props.getUpdatedRecipes(response.data)
+      
+    })
+
+  }
 
 
-// export default class Search extends Component {
-//     constructor(props){
-//         super(props)
-//         this.state = {
-//             recipesFound:[],
-//             label: '',
-//             url: '',
-//             image: '',
-//             search:'',
-//         }
-//     }
-//    findRecipes(){
-//        axios.get(`http:/api.edamam.com/search?q=${search}&app_id=56d22535&app_key=01d375bd14696b90f242ba5c68d7dfeb&from=0&to=10&diet=low-carb`).then(response=>{
-//            this.setState({
-//                recipesFound: response.data,
-//                label: response.data.recipe.label,
-//                url: response.data.recipe.url,
-//                image: response.data.recipe.image
-//            })
-//        })
-//    }
-// // startSearch(){}  
+ handleChange = (val) => {
 
-//  handleChange(text){
-//      this.setState({
-//          search: text
-//      })
-//  }
+     this.setState({
+         search: val
+     })
+ }
 
-//   render() {
-//     const recipesFound = this.state.recipesFound.map(r =>{
-//         return <div className ="wrap" key={r.id}>
-//                   <div className="gallery" >
-//                   <a target='_blank' href={r.url}> <img src={r.image} alt="food" className="pics"/></a>
-//                   </div>
-  
-//                 <div className="label-containerFlex">
-//                     <div id="name">{r.label}</div>
-                        
-  
-//                 </div>
-//               </div>
-//       })
-//     return (
-//       <section className="Search__parent">
+  render() {
+      console.log(this.state.recipesFound)
+    const recipesFound = this.state.recipesFound ? this.state.recipesFound.map((r,i) =>{
+        return <div className ="wrap-found" key={r.recipe.label}>
+                  <div className="gallery-found" >
+                  <a target='_blank' href={r.recipe.url}> <img src={r.recipe.image} alt="food" className="pics-found"/></a>
+                  </div>
+                   <div className="wrap-flex">
+                    <div className="label-found">
+                    {r.recipe.label}   
+                    </div>
+                    <button onClick={()=>this.myAddRecipe(r.recipe.label, r.recipe.url, r.recipe.image)} id="plus">+</button>
+                   </div>
+              </div>
+      }): 'loading'
+    return (
+      <section className="Search__parent">
 
-//         <div className="Search__content">
-//           <input placeholder="Search Your Feed" onChange={(e)=>this.handleChange(e.target.value)}/>
-//           <SearchIcon id="Search__icon" onClick={this.startSearch}/>
-//         </div>
+        <div className="Search__content">
+          <input placeholder="Search" onChange={(e)=> this.handleChange(e.target.value)}/>
+          <button  onClick={this.findRecipes}>Search</button>
+          <div>{recipesFound}</div>
+        </div>
         
-//       </section>
-//     )
-//   }
-// }
+      </section>
+    )
+  }
+}

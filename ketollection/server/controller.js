@@ -28,7 +28,9 @@ module.exports = {
        }
        recipes.push(newRecipe);
        id++;
-       response.status(200).send(recipes);
+
+       console.log(recipes);
+       response.status(200).json(recipes);
     },
     read: (request,response)=>{
         response.status(200).send(recipes);

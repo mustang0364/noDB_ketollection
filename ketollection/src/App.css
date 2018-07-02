@@ -134,8 +134,8 @@ table {
 
 input {
   display: block;
-  padding:20px;
   width: 200px;
+  margin: 5px 5px;
   height: 1em;
   font-size: 14px;
   font-family: sans-serif;
@@ -155,4 +155,38 @@ button{
   width: 10px;
   height:10px;
   border-radius: 100px;
+}
+
+.pics-found{
+  heigth: 100px;
+  width: 100px;
+  
+}
+
+.wrap-found{
+  height: 150px;
+  width: 150px;
+  
+}
+
+
+
+
+.gallery-found{
+  width: 216px;
+}
+
+.wrap-flex{
+  display: flex;
+}
+
+.label-found{
+  width:100px;
+  font-size: 10px;
+  margin: 0 58px;
+  flex: 1;
+}
+
+#plus{
+  flex:1;
 }
